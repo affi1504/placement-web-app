@@ -1,5 +1,5 @@
 <?php
-include('public\components\header.php'); 
+include('..\public\components\header.php'); 
 ?>
 
 <body class="bg-indigo-600 h-screen font-sans">
@@ -61,5 +61,5 @@ include('public\components\header.php');
 
 
 <?php
-include('public\components\footer.php');
+include('..\public\components\footer.php');
 ?>
