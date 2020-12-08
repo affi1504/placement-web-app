@@ -5,7 +5,7 @@ include('..\public\components\header.php');
 <body class="bg-gray-00 font-family-karla flex">
 
     <?php
-    include('..\public\components\sidebar.php');
+    include('..\public\components\sidebars.php');
     ?>
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">

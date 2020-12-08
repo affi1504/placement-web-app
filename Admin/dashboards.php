@@ -1,8 +1,7 @@
 <?php
 include('..\public\components\header.php'); 
-
 ?>
-<body class="bg-gray-00 font-family-karla flex">
+<body class="bg-gray-100 font-family-karla flex">
 
     <?php
     include('..\public\components\sidebars.php');
@@ -16,12 +15,8 @@ include('..\public\components\header.php');
     
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                <h1 class="text-3xl text-black pb-6">Students</h1>
-
-                <button class="w-1/4 float-right bg-indigo-600 font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-indigo-800 flex items-center justify-center text-white ">
-                <i class="fas fa-plus mr-3"></i> New Student
-            </button>
-   
+                <h1 class="text-3xl text-black pb-6">Dashboard</h1>
+    
                 <div class="w-full mt-12">
                     <p class="text-xl pb-3 flex items-center">
                         <i class="fas fa-list mr-3"></i> Latest Reports
@@ -95,8 +90,7 @@ include('..\public\components\header.php');
         </div>
         
     </div>
-
-  <?php 
+    <?php
 include('..\public\components\footer.php');
 ?>
     
