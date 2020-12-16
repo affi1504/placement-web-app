@@ -17,83 +17,89 @@ include('..\public\components\header.php');
                     <p class="text-xl pb-3 flex items-center">
                         <i class="fas fa-list mr-3"></i> Latest Reports
                     </p>
-                    <div class="bg-white overflow-auto">
-                        <table class="min-w-full bg-white">
-                            <thead class="bg-gray-800 text-white">
-                                <tr>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Last name</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Phone</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-700">
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Lian</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Oliver</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Williams</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Isabella</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Brown</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Lian</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Oliver</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Williams</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Isabella</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Brown</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class=" overflow-auto">
+
+
+
+
+
+
+
+
+                        <div id="container" class="w-full mx-auto">
+                            <div class="grid grid-cols-4 ">
+                                <!-- Card 1 -->
+                                <div class="w-full p-2">
+                                    <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
+                                        <div class="mb-3">
+                                            <img class="w-auto mx-auto rounded-full"
+                                                src="https://i.pravatar.cc/150?img=66" alt="" />
+                                        </div>
+                                        <h2 class="text-xl font-medium text-gray-700">Pande Muliada</h2>
+                                        <span class="text-blue-500 block mb-5">Front End Developer</span>
+
+                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="w-full p-2">
+                                    <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
+                                        <div class="mb-3">
+                                            <img class="w-auto mx-auto rounded-full"
+                                                src="https://i.pravatar.cc/150?img=31" alt="" />
+                                        </div>
+                                        <h2 class="text-xl font-medium text-gray-700">Saraswati Cahyati</h2>
+                                        <span class="text-blue-500 block mb-5">Back End Developer</span>
+
+                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="w-full p-2">
+                                    <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
+                                        <div class="mb-3">
+                                            <img class="w-auto mx-auto rounded-full"
+                                                src="https://i.pravatar.cc/150?img=18" alt="" />
+                                        </div>
+                                        <h2 class="text-xl font-medium text-gray-700">Wayan Alex</h2>
+                                        <span class="text-blue-500 block mb-5">Data Scientist</span>
+
+                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div class="w-full mx-auto p-2">
+                                    <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
+                                        <div class="mb-3">
+                                            <img class="w-auto mx-auto rounded-full"
+                                                src="https://i.pravatar.cc/150?img=28" alt="" />
+                                        </div>
+                                        <h2 class="text-xl font-medium text-gray-700">Ketut Julia</h2>
+                                        <span class="text-blue-500 block mb-5">Project Manager</span>
+
+                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                 </div>
             </main>
