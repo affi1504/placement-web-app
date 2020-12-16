@@ -1,7 +1,7 @@
 <header class="w-full flex items-center bg-white py-2 px-6 hidden sm:flex">
     <div class="w-2/3">
         <div>
-            <a href="../index.php"
+            <a href="index.php"
                 class="py-2 px-8 mx-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 hover:bg-indigo-700 ">Home</a>
             <a href="training.php"
                 class="py-2 px-8 mx-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 hover:bg-indigo-700 ">Placement
