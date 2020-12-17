@@ -4,46 +4,66 @@ include('..\connect.php');
 
 ?>
 
+<?php
+    include('..\public\components\sidebars.php');
+    include('..\connect.php'); 
+    if (isset($_POST['submit'])){
+       $user=$_POST['username'];
+       $pass=$_POST['password'];
+       $sql="select * from admin WHERE username='$user' and password='$pass'";
+       $result=mysqli_query($conn,$sql);
+       $row=mysqli_fetch_array($result);
+       if($row['username']==$user && $row['password']==$pass)
+       {
+           echo("successful");
+       }
+       else
+       echo"unsucc";
+    }
+
+
+    ?>
+
 <body class="bg-indigo-600 h-screen font-sans">
     <div class="container mx-auto h-full flex justify-center items-center">
         <div class="w-1/3">
             <h1 class="text-4xl font-semibold mb-6 text-white text-center">Admin Login</h1>
-            <form method ='POST' action='index1.php' >
-            <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
-                <div class="mb-4">
-                    <label class="font-bold text-indigo-600 block mb-2">Username or Email</label>
-                    <input type="text"
-                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                        name= "username" placeholder="Your Username">
-                </div>
-
-                <div class="mb-4">
-                    <label class="font-bold text-indigo-600 block mb-2">Password</label>
-                    <input type="text"
-                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                        name="password" placeholder="Your Password">
-                </div>
-
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center">
-                        <input id="remember_me" name="remember_me" type="checkbox"
-                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="remember_me" class="ml-2 block text-sm text-gray-900">
-                            Remember me
-                        </label>
+            <form method='POST' action='try.php'>
+                <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
+                    <div class="mb-4">
+                        <label class="font-bold text-indigo-600 block mb-2">Username or Email</label>
+                        <input type="text"
+                            class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                            name="username" placeholder="Your Username">
                     </div>
 
-                    <div class="text-sm">
-                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                            Forgot your password?
-                        </a>
+                    <div class="mb-4">
+                        <label class="font-bold text-indigo-600 block mb-2">Password</label>
+                        <input type="text"
+                            class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                            name="password" placeholder="Your Password">
                     </div>
 
-                </div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <input id="remember_me" name="remember_me" type="checkbox"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+                                Remember me
+                            </label>
+                        </div>
 
-                <div>
-                    <button type="submit"
-                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                Forgot your password?
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <input type="submit" name="submit"
+                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                             <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -54,10 +74,10 @@ include('..\connect.php');
                             </svg>
                         </span>
                         Sign in
-                    </button>
-                </div>
+                        </input>
+                    </div>
 
-            </div>
+                </div>
             </form>
         </div>
     </div>

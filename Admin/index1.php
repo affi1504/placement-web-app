@@ -4,25 +4,6 @@ include('..\public\components\header.php');
 
 <body class="bg-gray-100 font-family-karla flex">
 
-    <?php
-    include('..\public\components\sidebars.php');
-    include('..\connect.php'); 
-    if (isset($_POST['submiT'])){
-       $user=$_POST['username'];
-       $pass=$_POST['password'];
-       $sql="select * from admin WHERE username='$user' and password='$pass'";
-       $result=mysqli_query($conn,$sql);
-       $row=mysqli_fetch_array($result);
-       if($row['username']==$user && $row['password']==$pass)
-       {
-           echo("successfull");
-       }
-       else
-       echo"unsucc";
-    }
-
-
-    ?>
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
