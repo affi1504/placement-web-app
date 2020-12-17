@@ -2,108 +2,64 @@
 include('..\public\components\header.php'); 
 ?>
 
-<body class="bg-gray-100 font-family-karla flex">
-
-
-
-    <div class="w-full flex flex-col h-screen overflow-y-hidden">
-        <!-- Desktop Header -->
-        <?php
-        include('..\public\components\student-header.php');
-        ?>
-
-        <div class="w-full overflow-x-hidden border-t flex flex-col">
-            <main class="w-full flex-grow p-6">
-
-                <div class="w-full mt-12">
-                    <p class="text-xl pb-3 flex items-center">
-                        <i class="fas fa-list mr-3"></i> Latest Reports
-                    </p>
-                    <div class="bg-white overflow-auto">
-                        <table class="min-w-full bg-white">
-                            <thead class="bg-gray-800 text-white">
-                                <tr>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Last name</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Phone</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-700">
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Lian</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Oliver</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Williams</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Isabella</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Brown</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Lian</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Oliver</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Williams</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Isabella</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Brown</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+<body class="bg-indigo-600 h-screen font-sans">
+    <div class="container mx-auto h-full flex justify-center items-center">
+        <div class="w-1/3">
+            <h1 class="text-4xl font-semibold mb-6 text-white text-center">Student Login</h1>
+            <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
+                <div class="mb-4">
+                    <label class="font-bold text-indigo-600 block mb-2">Username or USN</label>
+                    <input type="text"
+                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                        placeholder="Your Username/USN">
                 </div>
-            </main>
 
+                <div class="mb-4">
+                    <label class="font-bold text-indigo-600 block mb-2">Password</label>
+                    <input type="text"
+                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                        placeholder="Your Password">
+                </div>
 
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <input id="remember_me" name="remember_me" type="checkbox"
+                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                        <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <div class="text-sm">
+                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                            Forgot your password?
+                        </a>
+                    </div>
+
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        Sign in
+                    </button>
+                </div>
+
+            </div>
         </div>
-
     </div>
-    <?php
-include('..\public\components\footer.php');
+</body>
+
+
+<?php
+include('public\components\footer.php');
 ?>

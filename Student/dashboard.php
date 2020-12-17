@@ -5,15 +5,15 @@ include('..\public\components\header.php');
 <body class="bg-gray-100 font-family-karla flex">
 
 
+
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
         <?php
-        include('..\public\components\admin-header.php');
+        include('..\public\components\student-header.php');
         ?>
 
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                <h1 class="text-3xl text-black pb-6">Dashboard</h1>
 
                 <div class="w-full mt-12">
                     <p class="text-xl pb-3 flex items-center">
