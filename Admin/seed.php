@@ -3,13 +3,10 @@
        $user= "admin";
        $pass= "password";
        $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
-       $sql="INSERT into admin values 'admin', '$user' , '$hashed_pass'; ";
-       $result=mysqli_query($conn,$sql);
-       $row=mysqli_fetch_array($result);
-       if($row)
-       {
-           echo("successful");
-       }
-       else
-       echo"unsuccessful";
+       $sql="INSERT INTO admin (id, name,username,password) VALUES ('1','admin','$user','$hashed_pass') ";
+       if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+      } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
 ?>

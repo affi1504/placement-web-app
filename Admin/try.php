@@ -5,15 +5,13 @@ include('..\connect.php');
 ?>
 
 <?php
-    include('..\public\components\sidebars.php');
-    include('..\connect.php'); 
     if (isset($_POST['submit'])){
        $user=$_POST['username'];
        $pass=$_POST['password'];
-       $sql="select * from admin WHERE username='$user' and password='$pass'";
+       $sql="select * from admin WHERE username='$user'";      
        $result=mysqli_query($conn,$sql);
        $row=mysqli_fetch_array($result);
-       if($row['username']==$user && $row['password']==$pass)
+       if($row['username']==$user && password_verify( $pass, $row['password'] )==1)
        {
            echo("successful");
        }
@@ -62,7 +60,7 @@ include('..\connect.php');
                     </div>
 
                     <div>
-                        <input type="submit" name="submit"
+                        <input type="submit" name="submit" onclick="index1.php"
                             class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                             <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
