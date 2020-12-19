@@ -1,7 +1,8 @@
 <?php
 include('..\public\components\header.php'); 
+include('session.php');
 ?>
-
+ 
 <body class="bg-gray-100 font-family-karla flex">
 
     <?php

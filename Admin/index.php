@@ -7,6 +7,7 @@ include('..\connect.php');
        $user= $_POST['username'];
        $pass= $_POST['password'];
        if($user == "" || $pass == "" ){
+           
 
        }
        else{
@@ -15,10 +16,12 @@ include('..\connect.php');
         $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
         if($row['username']== $user && password_verify($pass,$row['password']))
         {
+            session_start();
+            $_SESSION['logged_user']=$user;
             header('location:dashboard.php');
         }
         else
-        header('index.php?error=wrong credentials');
+        header('index.php');
      }
        }
  
@@ -41,7 +44,7 @@ include('..\connect.php');
 
                     <div class="mb-4">
                         <label class="font-bold text-indigo-600 block mb-2">Password</label>
-                        <input type="text"
+                        <input type="password"
                             class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                             name="password" placeholder="Your Password">
                     </div>
@@ -50,7 +53,7 @@ include('..\connect.php');
                     </div>
 
                     <div>
-                        <input type="submit" name="submit" class=" group relative w-full flex justify-center py-2 px-4 border border-transparent
+                        <input type="submit" name="submit" placeholder="submit" class=" group relative w-full flex justify-center py-2 px-4 border border-transparent
                             text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700
                             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         </input>

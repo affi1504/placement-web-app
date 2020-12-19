@@ -1,5 +1,7 @@
 <?php
 include('..\public\components\header.php'); 
+include('session.php');
+
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
@@ -17,28 +19,6 @@ include('..\public\components\header.php');
                         <i class="fas fa-list mr-3"></i>upcoming placement drives
                     </p>
                     <div class="grid  grid-cols-3 gap-4">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

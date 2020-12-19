@@ -1,5 +1,7 @@
 <?php
 include('..\public\components\header.php'); 
+include('session.php');
+
 
 ?>
 
@@ -18,12 +20,6 @@ include('..\public\components\header.php');
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
                 <h1 class="text-3xl text-black pb-6">Students</h1>
-                <!--
-                <button
-                    class="w-1/4 float-right bg-indigo-600 font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-indigo-800 flex items-center justify-center text-white ">
-                    <i class="fas fa-plus mr-3"></i> New Student
-                </button>
--->
 
                 <button
                     class="w-1/4 float-right bg-indigo-600 font-semibold py-2 mt-5 rounded-br-lg show-modal rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-indigo-800 flex items-center justify-center text-white ">
@@ -33,7 +29,7 @@ include('..\public\components\header.php');
                 <div
                     class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden overflow-auto">
                     <!-- modal -->
-                    <div class="bg-white rounded shadow-lg w-1/3 h-3/4">
+                    <div class="bg-white rounded shadow-lg w-1/2 h-3/4">
                         <!-- modal header -->
                         <div class="border-b px-4 py-2 flex justify-between items-center ">
                             <h3 class="font-semibold text-lg">Add Student</h3>
@@ -43,7 +39,7 @@ include('..\public\components\header.php');
 
 
 
-                        <form action="" method="post">
+                        <form action="students.php" method="post">
                             <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
 
                                 <div class="mb-4">
@@ -132,14 +128,16 @@ include('..\public\components\header.php');
 
 
 
-                            </div>
+                            
+                        
+                            <div class="flex justify-end items-center w-100 border-t p-3">
+                            <input type="reset" placeholder="clear"
+                                class="w-1/2 bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1 close-modal"/>
+                            <input type="submit" name="submit"
+                                class="w-1/2 bg-indigo-600 hover:bg-indigo-700 px-3 py-1 rounded text-white"/>
+                          </div>
+                          </div>
                         </form>
-                        <div class="flex justify-end items-center w-100 border-t p-3">
-                            <button
-                                class="w-1/2 bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1 close-modal">Cancel</button>
-                            <button
-                                class="w-1/2 bg-indigo-600 hover:bg-indigo-700 px-3 py-1 rounded text-white">Add</button>
-                        </div>
                     </div>
                 </div>
 
