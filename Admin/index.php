@@ -4,18 +4,24 @@ include('..\connect.php');
 
 
     if (isset($_POST['submit'])){
-       $user=$_POST['username'];
-       $pass=$_POST['password'];
-       $sql="select * from admin WHERE username='$user' and password='$pass'";
-       $result=mysqli_query($conn,$sql);
-       $row=mysqli_fetch_array($result);
-       if($row['username']==$user && $row['password']==$pass)
-       {
-           echo("successful");
+       $user= $_POST['username'];
+       $pass= $_POST['password'];
+       if($user == "" || $pass == "" ){
+
        }
-       else
-       echo"unsucc";
-    }
+       else{
+        $sql="select * from admin WHERE username='$user'";
+        $result=mysqli_query($conn,$sql);
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+        if($row['username']== $user && password_verify($pass,$row['password']))
+        {
+            header('location:dashboard.php');
+        }
+        else
+        header('index.php?error=wrong credentials');
+     }
+       }
+ 
 
 ?>
 
@@ -25,10 +31,10 @@ include('..\connect.php');
         <div class="w-1/3">
             <h1 class="text-4xl font-semibold mb-6 text-white text-center">Admin Login</h1>
             <form action="index.php" method="post">
-                < <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
+                <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
                     <div class="mb-4">
                         <label class="font-bold text-indigo-600 block mb-2">Username or Email</label>
-                        <input type="text"
+                        <input type="text" name="username"
                             class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                             placeholder="Your Username">
                     </div>
@@ -37,7 +43,7 @@ include('..\connect.php');
                         <label class="font-bold text-indigo-600 block mb-2">Password</label>
                         <input type="text"
                             class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                            placeholder="Your Password">
+                            name="password" placeholder="Your Password">
                     </div>
 
                     <div class="flex items-center justify-between mb-4">
@@ -47,20 +53,11 @@ include('..\connect.php');
                         <input type="submit" name="submit" class=" group relative w-full flex justify-center py-2 px-4 border border-transparent
                             text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700
                             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                            <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
                         </input>
                     </div>
+                </div>
+            </form>
         </div>
-        </form>
-    </div>
     </div>
 </body>
 
