@@ -23,11 +23,6 @@ include('session.php');
                     <div class=" overflow-auto">
 
 
-
-
-
-
-
                         <div class="lg:flex shadow-lg border rounded-lg my-8 mx-20 ">
                             <div class="bg-indigo-600 rounded-lg lg:w-2/12 py-4 block h-full shadow-inner">
                                 <div class="text-center tracking-wide">

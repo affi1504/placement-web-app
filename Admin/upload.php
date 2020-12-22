@@ -1,15 +1,68 @@
 <?php
 include('..\public\components\header.php'); 
-include('session.php');
 include('..\connect.php');
 
+if (isset($_POST['submit'])){  
+    $student_name=$_POST['sname'];
+    $student_username=$_POST['susername'];
+    $student_email=$_POST['semail'];
+    $hashed_pass=$_POST['spassword'];
+    $student_password= password_hash($hashed_pass, PASSWORD_DEFAULT);
+    $student_dob=$_POST['sdob'];
+    $student_gender=$_POST['sgender'];
+    $student_course=$_POST['scourse'];
+    $student_college=$_POST['scollege'];
+    $student_yog=$_POST['syog'];
+    $student_gpa=$_POST['sgpa'];
+            
+       
+    $student_cv = $_FILES['scv']['name'];
+    $student_profile = $_FILES['sprofile']['name'];
 
 
+    // destination of the file on the server
+    $destinationcv = '../public/assets/cv/' .$student_cv;
+    $destinationprofile = '../public/assets/profile/' . $student_profile;
+
+    // get the file extension
+    $extensioncv = pathinfo( $student_cv, PATHINFO_EXTENSION);
+    $extensionprofile = pathinfo($student_profile, PATHINFO_EXTENSION);
 
 
+    // the physical file on a temporary uploads directory on the server
+    $filecv = $_FILES['scv']['tmp_name'];
+    $sizecv = $_FILES['scv']['size'];
+    $fileprofile = $_FILES['sprofile']['tmp_name'];
+    $sizeprofile = $_FILES['sprofile']['size'];
+
+    if ((!in_array($extensioncv, ['jpg', 'pdf', 'jpeg'])) && (!in_array($extensionprofile, ['jpg', 'pdf', 'jpeg']))) {
+        echo "You file extension must be .zip, .pdf or .docx";
+    } elseif ( ($_FILES['scv']['size'] > 10000000)&&($_FILES['sprofile']['size'] > 10000000)) { // file shouldn't be larger than 1Megabyte
+        echo "File too large!";
+    } else {
+        // move the uploaded (temporary) file to the specified destination
+        if ((move_uploaded_file($filecv, $destinationcv)) && (move_uploaded_file($fileprofile, $destinationprofile))) {
+            $sql = "INSERT INTO student (name, username, email,password,dob,gender,course_name,college_name,yog,gpa,cv,profile_photo)
+            VALUES ('$student_name','$student_username','$student_email','$student_password','$student_dob','$student_gender','$student_course','$student_college','$student_yog','$student_gpa','$destinationcv','$destinationprofile')";
+                        if (mysqli_query($conn, $sql)) {
+                echo "File uploaded successfully";
+            }
+        } else {
+            echo "Failed to upload file.";
+        }
+    }
+}
 
 
 ?>
+
+
+
+
+
+
+
+
 
 <body class="bg-gray-00 font-family-karla flex">
 
@@ -18,19 +71,18 @@ include('..\connect.php');
     ?>
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
-        <!-- Desktop Header--->
+        <!-- Desktop Header -->
         <?php
         include('..\public\components\admin-header.php');
         ?>
 
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                <h1 class="text-3xl text-black pb-6">Tranings</h1>
-
+                <h1 class="text-3xl text-black pb-6">Students</h1>
 
                 <button
                     class="w-1/4 float-right bg-indigo-600 font-semibold py-2 mt-5 rounded-br-lg show-modal rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-indigo-800 flex items-center justify-center text-white ">
-                    <i class="fas fa-plus mr-3"></i> New Training
+                    <i class="fas fa-plus mr-3"></i> New Student
                 </button>
 
                 <div
@@ -46,34 +98,97 @@ include('..\connect.php');
 
 
 
-                        <form action="students.php" method="post">
+                        <form action="upload.php" method="post" enctype="multipart/form-data">
                             <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
 
                                 <div class="mb-4">
-                                    <label class="font-bold text-indigo-600 block mb-2">Trainig Name</label>
-                                    <input type="text"
+                                    <label class="font-bold text-indigo-600 block mb-2">Full Name</label>
+                                    <input type="text" name="sname"
                                         class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                                        placeholder="Name of the training">
+                                        placeholder="Full Name">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="font-bold text-indigo-600 block mb-2">Username</label>
+                                    <input type="text" name="susername"
+                                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                                        placeholder="Username">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="font-bold text-indigo-600 block mb-2">Training Date</label>
-                                    <input type="date">
-
+                                    <label class="font-bold text-indigo-600 block mb-2">Email</label>
+                                    <input type="text" name="semail"
+                                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                                        placeholder="Email">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="font-bold text-indigo-600 block mb-2">Trained By</label>
-                                    <input type="text"
+                                    <label class="font-bold text-indigo-600 block mb-2">Password</label>
+                                    <input type="text" name="spassword"
                                         class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                                        placeholder="Trainer Name">
+                                        placeholder="Password">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="font-bold text-indigo-600 block mb-2">Date of Birth</label>
+                                    <input type="date" name="sdob">
+
                                 </div>
                                 <div class="mb-4">
-                                    <label class="font-bold text-indigo-600 block mb-2">Status of the training</label>
-                                    <input type="text"
-                                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                                        placeholder="Status">
+                                    <label class="font-bold text-indigo-600 block mb-2">Gender</label>
+                                    <input type="radio" id="male" name="sgender" value="male">
+                                    <label for="male">Male</label><br>
+                                    <input type="radio" id="female" name="sgender" value="female">
+                                    <label for="female">Female</label><br>
+                                    <input type="radio" id="other" name="sgender" value="other">
+                                    <label for="other">Other</label>
                                 </div>
+
+                                <div class="mb-4">
+                                    <label class="font-bold text-indigo-600 block mb-2">Course Name</label>
+                                    <input type="text" name="scourse"
+                                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                                        placeholder="Course Name">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="font-bold text-indigo-600 block mb-2">College Name</label>
+                                    <input type="text" name="scollege"
+                                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                                        placeholder="College Name">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="font-bold text-indigo-600 block mb-2">Year of graduation</label>
+                                    <input type="date" name="syog">
+
+                                </div>
+                                <div class="mb-4">
+                                    <label class="font-bold text-indigo-600 block mb-2">GPA</label>
+                                    <input type="text" name="sgpa"
+                                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                                        placeholder="GPA">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="font-bold text-indigo-600 block mb-2">Curriculum Vitae</label>
+
+                                    <input type="file" name="scv"
+                                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="font-bold text-indigo-600 block mb-2">Upload your Profile
+                                        Picture</label>
+                                    <input type="file" name="sprofile"
+                                        class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+                                </div>
+
+
+
+
+
+
+
+
                                 <div class="flex justify-end items-center w-100 border-t p-3">
                                     <input type="reset" placeholder="clear"
                                         class="w-1/2 bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1 close-modal" />
@@ -101,6 +216,16 @@ include('..\connect.php');
                     });
                 });
                 </script>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -294,7 +419,3 @@ include('..\connect.php');
         </div>
 
     </div>
-
-    <?php 
-include('..\public\components\footer.php');
-?>
