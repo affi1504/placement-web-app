@@ -19,10 +19,10 @@ include('session.php');
             <div class="bg-white shadow overflow-hidden sm:rounded-lg max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 mt-16">
     <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Student Information
+            Applicant Information
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            Personal details .
+            Personal details and application.
         </p>
     </div>
     <div class="border-t border-gray-200">
