@@ -1,6 +1,7 @@
 <?php
 include('..\public\components\header.php'); 
 include('session.php');
+
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
@@ -27,7 +28,7 @@ include('session.php');
     </div>
     <?php
                             include('..\connect.php');
-                              $id = $_GET['id'];
+                            $id=$_SESSION['id'];
                                 $sql = "SELECT * FROM student where s_id='$id'";
                                     if($result = mysqli_query($conn, $sql))
                                     {
