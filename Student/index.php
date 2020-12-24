@@ -18,7 +18,7 @@ if (isset($_POST['submit'])){
         {
             session_start();
             $_SESSION['logged_student']=$user;
-            header('location:dashboard.php');
+            header('location:dashboard.php?id='.$row['s_id']);
         }
         else
         header('index.php');

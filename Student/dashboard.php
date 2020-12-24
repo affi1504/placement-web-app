@@ -19,12 +19,25 @@ include('session.php');
             <div class="bg-white shadow overflow-hidden sm:rounded-lg max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 mt-16">
     <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Applicant Information
+            Personal Information
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500">
             Personal details and application.
         </p>
     </div>
+    <?php
+                            include('..\connect.php');
+                              $id = $_GET['id'];
+                                $sql = "SELECT * FROM student where s_id='$id'";
+                                    if($result = mysqli_query($conn, $sql))
+                                    {
+                                       if(mysqli_num_rows($result) > 0)
+                                       {
+                                             while($row = mysqli_fetch_array($result))
+                                                 {
+                                                    
+                                               ?>          
+                    
     <div class="border-t border-gray-200">
         <dl>
             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -32,15 +45,15 @@ include('session.php');
                     Full name
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    Margot Foster
+                <?php echo  $row['name'] ;?>
                 </dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">
-                    Application for
+                    Username
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    Backend Developer
+                <?php echo  $row['username'] ;?>
                 </dd>
             </div>
             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -48,27 +61,59 @@ include('session.php');
                     Email address
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    margotfoster@example.com
+                <?php echo  $row['email'] ;?>
                 </dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">
-                    Salary expectation
+                    Dob
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    $120,000
+                <?php echo  $row['dob'] ;?>
                 </dd>
             </div>
             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">
-                    About
+                    Gender
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat.
-                    Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                    proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+                <?php echo  $row['gender'] ;?>
                 </dd>
             </div>
+            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">
+                    Course Name
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                <?php echo  $row['dob'] ;?>
+                </dd>
+            </div>
+            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">
+                    College_name
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                <?php echo  $row['gender'] ;?>
+                </dd>
+            </div>
+            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">
+                    Year of Graduation
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                <?php echo  $row['dob'] ;?>
+                </dd>
+            </div>
+            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">
+                    Gpa
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                <?php echo  $row['gender'] ;?>
+                </dd>
+            </div>
+            
+           
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">
                     Attachments
@@ -117,6 +162,22 @@ include('session.php');
                 </dd>
             </div>
         </dl>
+       
+
+                        <?php 
+                                     }
+                                     // Free result set
+                                 mysqli_free_result($result);
+                                } else  {
+                                         echo "No Training Available .";
+                                        }
+                            } else  {
+                                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                     }
+
+                    // Close connection
+            mysqli_close($conn);
+            ?>
 
         <button class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
             edit

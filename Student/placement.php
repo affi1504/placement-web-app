@@ -5,6 +5,8 @@ include('session.php');
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
+
+
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
         <?php
@@ -13,158 +15,85 @@ include('session.php');
 
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-
                 <div class="w-full mt-12">
                     <p class="text-xl pb-3 flex items-center">
-                        <i class="fas fa-list mr-3"></i>upcoming placement drives
+                        <i class="fas fa-list mr-3"></i> Latest Reports
                     </p>
-                    <div class="grid  grid-cols-3 gap-4">
+                    <div class=" ">
 
 
 
-                        <div class="w-full max-w-sm mx-auto overflow-hidden rounded border bg-white shadow">
-                            <div class="relative">
-                                <div class="h-48 bg-cover bg-no-repeat bg-center"
-                                    style="background-image: url(https://picsum.photos/245/245">
+
+                  
+
+                      
+
+
+
+
+
+
+                    <?php
+                            include('..\connect.php');
+                            $sql = "SELECT * FROM placement p,company c where c.c_id=p.c_id";
+                                if($result = mysqli_query($conn, $sql))
+                                {
+                                   if(mysqli_num_rows($result) > 0)
+                                   {
+                                         while($row = mysqli_fetch_array($result))
+                                             {
+                                                
+                                           ?>          
+
+
+
+
+                        <div id="container" class="w-full mx-auto">
+                            <div class="grid grid-cols-3 ">
+                                <!-- Card 1 --> 
+                                <div></div>
+                                <div class="w-full mx-auto p-3">
+                                    <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
+                                        <div class="mb-3">
+                                            <img class="object-contain w-25 h-20 mx-auto rounded-full "
+                                                src="<?php echo $row['logo'];?>" alt="" />
+                                        </div>
+                                        <h2 class="text-xl font-medium text-gray-700"><?php echo $row['name'];?></h2>
+                                        <span class="text-blue-500 block mb-5"><?php echo $row['link'];?></span>
+
+                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Know More</a>
+                                   
+                                    </div>
+                                    
                                 </div>
-                                <div style="background-color: rgba(0,0,0,0.6)"
-                                    class="absolute bottom-0 mb-2 ml-3 px-2 py-1 rounded text-sm text-white">$ 16.80
-                                </div>
-                                <div style="bottom: -20px;" class="absolute right-0 w-10 mr-2">
-                                    <a href="#">
-                                        <img class="rounded-full border-2 border-white"
-                                            src="https://randomuser.me/api/portraits/women/17.jpg">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="p-3">
-                                <h3 class="mr-10 text-sm truncate-2nd">
-                                    <a class="hover:text-blue-500"
-                                        href="/huawwei-p20-pro-complete-set-with-box-a.7186128376">Some Title Here</a>
-                                </h3>
-                                <div class="flex items-start justify-between">
-                                    <p class="text-xs text-gray-500">Quezon City, Metro Manila</p>
-                                    <button class="outline text-xs text-gray-500 hover:text-blue-500"
-                                        title="Bookmark this ad"><i class="far fa-bookmark"></i></button>
-                                </div>
-                                <p class="text-xs text-gray-500"><a href="#"
-                                        class="hover:underline hover:text-blue-500">username2019</a> • 2 days ago</p>
-                            </div>
+                             
+                              
+                            
+                            
                         </div>
+                        
+                       
 
 
+                        <?php 
+                                     }
+                                     // Free result set
+                                 mysqli_free_result($result);
+                                } else  {
+                                         echo "No Training Available .";
+                                        }
+                            } else  {
+                                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                     }
 
+                    // Close connection
+            mysqli_close($conn);
+            ?>
+                               
 
-
-
-
-                        <div class="w-full max-w-sm mx-auto overflow-hidden rounded border bg-white shadow">
-                            <div class="relative">
-                                <div class="h-48 bg-cover bg-no-repeat bg-center"
-                                    style="background-image: url(https://picsum.photos/245/245">
-                                </div>
-                                <div style="background-color: rgba(0,0,0,0.6)"
-                                    class="absolute bottom-0 mb-2 ml-3 px-2 py-1 rounded text-sm text-white">$ 16.80
-                                </div>
-                                <div style="bottom: -20px;" class="absolute right-0 w-10 mr-2">
-                                    <a href="#">
-                                        <img class="rounded-full border-2 border-white"
-                                            src="https://randomuser.me/api/portraits/women/17.jpg">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="p-3">
-                                <h3 class="mr-10 text-sm truncate-2nd">
-                                    <a class="hover:text-blue-500"
-                                        href="/huawwei-p20-pro-complete-set-with-box-a.7186128376">Some Title Here</a>
-                                </h3>
-                                <div class="flex items-start justify-between">
-                                    <p class="text-xs text-gray-500">Quezon City, Metro Manila</p>
-                                    <button class="outline text-xs text-gray-500 hover:text-blue-500"
-                                        title="Bookmark this ad"><i class="far fa-bookmark"></i></button>
-                                </div>
-                                <p class="text-xs text-gray-500"><a href="#"
-                                        class="hover:underline hover:text-blue-500">username2019</a> • 2 days ago</p>
-                            </div>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-                        <div class="w-full max-w-sm mx-auto overflow-hidden rounded border bg-white shadow">
-                            <div class="relative">
-                                <div class="h-48 bg-cover bg-no-repeat bg-center"
-                                    style="background-image: url(https://picsum.photos/245/245">
-                                </div>
-                                <div style="background-color: rgba(0,0,0,0.6)"
-                                    class="absolute bottom-0 mb-2 ml-3 px-2 py-1 rounded text-sm text-white">$ 16.80
-                                </div>
-                                <div style="bottom: -20px;" class="absolute right-0 w-10 mr-2">
-                                    <a href="#">
-                                        <img class="rounded-full border-2 border-white"
-                                            src="https://randomuser.me/api/portraits/women/17.jpg">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="p-3">
-                                <h3 class="mr-10 text-sm truncate-2nd">
-                                    <a class="hover:text-blue-500"
-                                        href="/huawwei-p20-pro-complete-set-with-box-a.7186128376">Some Title Here</a>
-                                </h3>
-                                <div class="flex items-start justify-between">
-                                    <p class="text-xs text-gray-500">Quezon City, Metro Manila</p>
-                                    <button class="outline text-xs text-gray-500 hover:text-blue-500"
-                                        title="Bookmark this ad"><i class="far fa-bookmark"></i></button>
-                                </div>
-                                <p class="text-xs text-gray-500"><a href="#"
-                                        class="hover:underline hover:text-blue-500">username2019</a> • 2 days ago</p>
-                            </div>
-                        </div>
-
-
-
-                        <div class="w-full max-w-sm mx-auto overflow-hidden rounded border bg-white shadow">
-                            <div class="relative">
-                                <div class="h-48 bg-cover bg-no-repeat bg-center"
-                                    style="background-image: url(https://picsum.photos/245/245">
-                                </div>
-                                <div style="background-color: rgba(0,0,0,0.6)"
-                                    class="absolute bottom-0 mb-2 ml-3 px-2 py-1 rounded text-sm text-white">$ 16.80
-                                </div>
-                                <div style="bottom: -20px;" class="absolute right-0 w-10 mr-2">
-                                    <a href="#">
-                                        <img class="rounded-full border-2 border-white"
-                                            src="https://randomuser.me/api/portraits/women/17.jpg">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="p-3">
-                                <h3 class="mr-10 text-sm truncate-2nd">
-                                    <a class="hover:text-blue-500"
-                                        href="/huawwei-p20-pro-complete-set-with-box-a.7186128376">Some Title Here</a>
-                                </h3>
-                                <div class="flex items-start justify-between">
-                                    <p class="text-xs text-gray-500">Quezon City, Metro Manila</p>
-                                    <button class="outline text-xs text-gray-500 hover:text-blue-500"
-                                        title="Bookmark this ad"><i class="far fa-bookmark"></i></button>
-                                </div>
-                                <p class="text-xs text-gray-500"><a href="#"
-                                        class="hover:underline hover:text-blue-500">username2019</a> • 2 days ago</p>
-                            </div>
-                        </div>
-
-
-
-
-
-
+                                
+                            </div> 
+                           
 
 
 
@@ -185,9 +114,6 @@ include('session.php');
         </div>
 
     </div>
-
-
-
     <?php
 include('..\public\components\footer.php');
 ?>
