@@ -1,15 +1,30 @@
 <?php
 include('..\public\components\header.php'); 
-include('session.php');
 include('..\connect.php');
 
-
-
-
-
-
+if (isset($_POST['submit'])){  
+    $trainingname=$_POST['tname'];
+    $trainingdate=$_POST['tdate'];
+    $trainer=$_POST['trainer'];
+    $traiingstatus=$_POST['status'];
+    $sql = "INSERT INTO training (name,training_at,trained_by,status)
+    VALUES ('$trainingname','$trainingdate','$trainer','$traiingstatus')";
+         if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('Insert Successfull')</script>";
+                 }
+ else {
+    echo "<script>alert('Sorry,!!Insert Unuccessfull')</script>";
+}     
+mysqli_close($conn);
+}
 
 ?>
+
+
+
+
+
+
 
 <body class="bg-gray-00 font-family-karla flex">
 
@@ -46,31 +61,31 @@ include('..\connect.php');
 
 
 
-                        <form action="students.php" method="post">
+                        <form action="trainings.php" method="post">
                             <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
 
                                 <div class="mb-4">
                                     <label class="font-bold text-indigo-600 block mb-2">Trainig Name</label>
-                                    <input type="text"
+                                    <input type="text" name="tname"
                                         class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                                         placeholder="Name of the training">
                                 </div>
 
                                 <div class="mb-4">
                                     <label class="font-bold text-indigo-600 block mb-2">Training Date</label>
-                                    <input type="date">
+                                    <input type="date" name="tdate">
 
                                 </div>
 
                                 <div class="mb-4">
                                     <label class="font-bold text-indigo-600 block mb-2">Trained By</label>
-                                    <input type="text"
+                                    <input type="text" name="trainer"
                                         class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                                         placeholder="Trainer Name">
                                 </div>
                                 <div class="mb-4">
                                     <label class="font-bold text-indigo-600 block mb-2">Status of the training</label>
-                                    <input type="text"
+                                    <input type="text" name="status"
                                         class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                                         placeholder="Status">
                                 </div>
@@ -112,178 +127,61 @@ include('..\connect.php');
                         <table class="min-w-full bg-white">
                             <thead class="bg-gray-800 text-white">
                                 <tr>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Last name</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Phone</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
+                                    <th class=" text-left py-3 px-4 uppercase font-semibold text-sm">Training Name</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Training Date</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Trainer</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Status</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">edit</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">delete</th>
                                 </tr>
                             </thead>
                             <tbody class="text-gray-700">
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Lian</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
-                                            Edit
-                                        </button>
-                                    </td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                            Delete
-                                        </button>
-                                    </td>
-
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
-                                            Edit
-                                        </button>
-                                    </td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Oliver</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Williams</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
-                                            Edit
-                                        </button>
-                                    </td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Isabella</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Brown</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
-                                            Edit
-                                        </button>
-                                    </td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Lian</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
-                                            Edit
-                                        </button>
-                                    </td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
-                                            Edit
-                                        </button>
-                                    </td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Oliver</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Williams</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
-                                            Edit
-                                        </button>
-                                    </td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
 
 
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Isabella</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Brown</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                            href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
+
+                                <?php
+                            include('..\connect.php');
+                                $sql = "SELECT * FROM training";
+                                    if($result = mysqli_query($conn, $sql))
+                                    {
+                                       if(mysqli_num_rows($result) > 0)
+                                       {
+                                             while($row = mysqli_fetch_array($result))
+                                                 {
+                                                    
+                                               ?>
+                            <tbody class="text-gray-700">
+                                <tr>
+                                    <td class="text-left py-3 px-4"><?php echo  $row['name'] ;?></td>
+                                    <td class="text-left py-3 px-4"><?php echo  $row['training_at'] ;?></td>
+                                    <td class="text-left py-3 px-4"><?php echo  $row['trained_by'] ;?></td>
+                                    <td class="text-left py-3 px-4"><?php echo  $row['status'] ;?></td>
+                                    <td>
+                                        <a
+                                            class="border border-yellow bg-yellow-500 text-white rounded-md py-2 px-4 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
                                             Edit
-                                        </button>
+                                        </a>
                                     </td>
-                                    <td class="text-left py-3 px-4">
-                                        <button type="button"
-                                            class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
+                                    <td>
+                                        <a
+                                            class="border border-red bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
                                             Delete
-                                        </button>
+                                        </a>
                                     </td>
-                                </tr>
+                                    <?php 
+                                     }
+                                     // Free result set
+                                 mysqli_free_result($result);
+                                } else  {
+                                         echo "No records matching your query were found.";
+                                        }
+                            } else  {
+                                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                     }
+
+                    // Close connection
+            mysqli_close($conn);
+            ?>
                             </tbody>
                         </table>
                     </div>

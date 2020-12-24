@@ -73,7 +73,7 @@ mysqli_close($conn);
 
 
 
-                        <form action="try.php" method="POST">
+                        <form action="placements.php" method="POST">
                             <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
 
                                 <div class="mb-4">

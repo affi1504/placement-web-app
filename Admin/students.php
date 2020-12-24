@@ -288,12 +288,11 @@ if (isset($_POST['submit'])){
                                             Edit
                                                  </a>
                                     </td>
-                                    <td >
-                                        <a 
-                                            class="border border-red bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                            Delete
-                                                 </a>
-                                    </td>
+                        
+                                    <td><a  class="border border-red bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+                                            href="delete.php?id=<?php echo $data['id']; ?>">Delete</a></td> 
+                                           
+                                    
                                     <?php 
                                      }
                                      // Free result set

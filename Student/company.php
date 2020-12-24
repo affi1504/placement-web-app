@@ -19,7 +19,17 @@ include('session.php');
                     <p class="text-xl pb-3 flex items-center">
                         <i class="fas fa-list mr-3"></i> Latest Reports
                     </p>
-                    <div class=" overflow-auto">
+                    <div class=" ">
+
+
+
+
+                  
+
+                      
+
+
+
 
 
 
@@ -30,63 +40,57 @@ include('session.php');
 
                         <div id="container" class="w-full mx-auto">
                             <div class="grid grid-cols-4 ">
-                                <!-- Card 1 -->
-                                <div class="w-full p-2">
+                                <!-- Card 1 -->  <?php
+                            include('..\connect.php');
+                            $sql = "SELECT * FROM company";
+                                if($result = mysqli_query($conn, $sql))
+                                {
+                                   if(mysqli_num_rows($result) > 0)
+                                   {
+                                         while($row = mysqli_fetch_array($result))
+                                             {
+                                                
+                                           ?>          
+                    
+                                <div class="w-full mx-auto p-3">
                                     <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
                                         <div class="mb-3">
-                                            <img class="w-auto mx-auto rounded-full"
-                                                src="https://i.pravatar.cc/150?img=66" alt="" />
+                                            <img class="object-contain w-25 h-20 mx-auto rounded-full "
+                                                src="<?php echo $row['logo'];?>" alt="" />
                                         </div>
-                                        <h2 class="text-xl font-medium text-gray-700">Pande Muliada</h2>
-                                        <span class="text-blue-500 block mb-5">Front End Developer</span>
+                                        <h2 class="text-xl font-medium text-gray-700"><?php echo $row['name'];?></h2>
+                                        <span class="text-blue-500 block mb-5"><?php echo $row['link'];?></span>
 
-                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
+                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Know More</a>
+                                   
                                     </div>
+                                    
                                 </div>
+                             
+                                <?php 
+                                     }
+                                     // Free result set
+                                 mysqli_free_result($result);
+                                } else  {
+                                         echo "No Training Available .";
+                                        }
+                            } else  {
+                                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                     }
 
-                                <!-- Card 2 -->
-                                <div class="w-full p-2">
-                                    <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                                        <div class="mb-3">
-                                            <img class="w-auto mx-auto rounded-full"
-                                                src="https://i.pravatar.cc/150?img=31" alt="" />
-                                        </div>
-                                        <h2 class="text-xl font-medium text-gray-700">Saraswati Cahyati</h2>
-                                        <span class="text-blue-500 block mb-5">Back End Developer</span>
+                    // Close connection
+            mysqli_close($conn);
+            ?>
+                               
 
-                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
-                                    </div>
-                                </div>
-
-                                <!-- Card 3 -->
-                                <div class="w-full p-2">
-                                    <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                                        <div class="mb-3">
-                                            <img class="w-auto mx-auto rounded-full"
-                                                src="https://i.pravatar.cc/150?img=18" alt="" />
-                                        </div>
-                                        <h2 class="text-xl font-medium text-gray-700">Wayan Alex</h2>
-                                        <span class="text-blue-500 block mb-5">Data Scientist</span>
-
-                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
-                                    </div>
-                                </div>
-
-                                <!-- Card 4 -->
-                                <div class="w-full mx-auto p-2">
-                                    <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                                        <div class="mb-3">
-                                            <img class="w-auto mx-auto rounded-full"
-                                                src="https://i.pravatar.cc/150?img=28" alt="" />
-                                        </div>
-                                        <h2 class="text-xl font-medium text-gray-700">Ketut Julia</h2>
-                                        <span class="text-blue-500 block mb-5">Project Manager</span>
-
-                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
-                                    </div>
-                                </div>
-                            </div>
+                                
+                            </div> 
+                           
+                            
+                            
                         </div>
+                        
+                       
 
 
 
