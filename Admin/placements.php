@@ -160,7 +160,6 @@ mysqli_close($conn);
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Salary</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Requirements</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Placement date</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">edit</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">delete</th>
                                 </tr>
                             </thead>
@@ -183,12 +182,7 @@ mysqli_close($conn);
                                     <td class="text-left py-3 px-4"><?php echo  $row['requirement'] ;?></td>
                                     <td class="text-left py-3 px-4"><?php echo  $row['d_date'] ;?></td>
 
-                                    <td>
-                                        <a
-                                            class="border border-yellow bg-yellow-500 text-white rounded-md py-2 px-4 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
-                                            Edit
-                                        </a>
-                                    </td>
+                                   
                                     <td>
                                         <a class="border border-red bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
                                             href="delete.php?id=<?php echo $row['0']; ?>&&idd=p_id&&table=placement&&head=placements.php">

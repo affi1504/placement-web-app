@@ -158,7 +158,8 @@ mysqli_close($conn);
                                     <td class="text-left py-3 px-4"><?php echo  $row['status'] ;?></td>
                                     <td>
                                         <a
-                                            class="border border-yellow bg-yellow-500 text-white rounded-md py-2 px-4 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
+                                            class="border border-yellow bg-yellow-500 text-white rounded-md py-2 px-4 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+                                            href="edittraining.php?id=<?php echo $row['0']; ?>">
                                             Edit
                                         </a>
                                     </td>

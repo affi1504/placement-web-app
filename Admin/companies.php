@@ -33,8 +33,8 @@ if (isset($_POST['submit'])){
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($filelogo, $destinationlogo))  {
-            $sql = "INSERT INTO company (name,email,address,description,link,p_no,logo)
-            VALUES ('$company_name','$company_email','$company_address','$company_description','$company_link','$company_phone','$destinationlogo')";
+            $sql = "INSERT INTO company (name,email,address,description,link,p_no,logo,logo_name)
+            VALUES ('$company_name','$company_email','$company_address','$company_description','$company_link','$company_phone','$destinationlogo','$company_logo')";
                  if (mysqli_query($conn, $sql)) {
                 echo "<script>alert('Insert Successfull')</script>";
             }
@@ -239,7 +239,8 @@ if (isset($_POST['submit'])){
 
                                     <td>
                                         <a
-                                            class="border border-yellow bg-yellow-500 text-white rounded-md py-2 px-4 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
+                                            class="border border-yellow bg-yellow-500 text-white rounded-md py-2 px-4 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+                                            href="editcompany.php?id=<?php echo $row['0']; ?>">
                                             Edit
                                         </a>
                                     </td>
