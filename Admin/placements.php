@@ -190,8 +190,8 @@ mysqli_close($conn);
                                         </a>
                                     </td>
                                     <td>
-                                        <a
-                                            class="border border-red bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
+                                        <a class="border border-red bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+                                            href="delete.php?id=<?php echo $row['0']; ?>&&idd=p_id&&table=placement&&head=placements.php">
                                             Delete
                                         </a>
                                     </td>

@@ -17,8 +17,8 @@ if (isset($_POST['submit'])){
     $student_gpa=$_POST['sgpa'];
             
        
-    $student_cv = $_FILES['scv']['name'];
-    $student_profile = $_FILES['sprofile']['name'];
+    $student_cv=$_FILES['scv']['name'];
+    $student_profile=$_FILES['sprofile']['name'];
 
 
     // destination of the file on the server
@@ -43,8 +43,8 @@ if (isset($_POST['submit'])){
     } else {
         // move the uploaded (temporary) file to the specified destination
         if ((move_uploaded_file($filecv, $destinationcv)) && (move_uploaded_file($fileprofile, $destinationprofile))) {
-            $sql = "INSERT INTO student (name, username, email,password,dob,gender,course_name,college_name,yog,gpa,cv,profile_photo)
-            VALUES ('$student_name','$student_username','$student_email','$student_password','$student_dob','$student_gender','$student_course','$student_college','$student_yog','$student_gpa','$destinationcv','$destinationprofile')";
+            $sql = "INSERT INTO student (name, username, email,password,dob,gender,course_name,college_name,yog,gpa,cv,profile_photo,cvname,profile)
+            VALUES ('$student_name','$student_username','$student_email','$student_password','$student_dob','$student_gender','$student_course','$student_college','$student_yog','$student_gpa','$destinationcv','$destinationprofile','$student_cv','$student_profile')";
                  if (mysqli_query($conn, $sql)) {
                 echo "<script>alert('Insert Successfull')</script>";
             }
@@ -231,7 +231,7 @@ if (isset($_POST['submit'])){
 
 
 
-<div class="w-full mt-12">
+                <div class="w-full mt-12">
                     <p class="text-xl pb-3 flex items-center">
                         <i class="fas fa-list mr-3"></i> Latest Reports
                     </p>
@@ -282,17 +282,20 @@ if (isset($_POST['submit'])){
                                             href="<?php echo  $row['email'] ;?>"><?php echo  $row['email'] ;?></a></td>
                                     <td class="text-left py-3 px-4"><?php echo  $row['course_name'];?></td>
                                     <td class="text-left py-3 px-4"><?php echo  $row['gpa'];?></td>
-                                    <td >
+                                    <td>
                                         <a
-                                            class="border border-yellow bg-yellow-500 text-white rounded-md py-2 px-4 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
+                                            class="border border-yellow bg-yellow-500 text-white rounded-md py-2 px-4 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+                                            href="edit.php?id=<?php echo $row['0']; ?>">
+
                                             Edit
-                                                 </a>
+                                        </a>
                                     </td>
-                        
-                                    <td><a  class="border border-red bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
-                                            href="delete.php?id=<?php echo $data['id']; ?>">Delete</a></td> 
-                                           
-                                    
+
+                                    <td><a class="border border-red bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+                                            href="delete.php?id=<?php echo $row['0']; ?>&&idd=s_id&&table=student&&head=students.php">
+                                            Delete</a></td>
+
+
                                     <?php 
                                      }
                                      // Free result set
