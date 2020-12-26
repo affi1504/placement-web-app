@@ -17,7 +17,7 @@ include('session.php');
             <main class="w-full flex-grow p-6">
                 <div class="w-full mt-12">
                     <p class="text-xl pb-3 flex items-center">
-                        <i class="fas fa-list mr-3"></i> Latest Reports
+                        <i class="fas fa-list mr-3"></i> Companies
                     </p>
                     <div class=" ">
 
@@ -59,9 +59,11 @@ include('session.php');
                                                 src="<?php echo $row['logo'];?>" alt="" />
                                         </div>
                                         <h2 class="text-xl font-medium text-gray-700"><?php echo $row['name'];?></h2>
-                                        <span class="text-blue-500 block mb-5"><?php echo $row['link'];?></span>
+                                        <h2 class=" mt-2 mb-2"> Contact Information</h2>
+                                        <a class=" block "><?php echo $row['email'];?></a>
+                                        <a class=" block "><?php echo $row['p_no'];?></a>
+                                        <a class="text-blue-500 block "><?php echo $row['link'];?></a>
 
-                                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full">Know More</a>
                                    
                                     </div>
                                     
